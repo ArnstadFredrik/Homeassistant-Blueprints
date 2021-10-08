@@ -1,0 +1,22 @@
+blueprint:
+  name: iOS action
+  description: Toggle action basen on ios.action_fired
+  domain: automation
+  input:
+    actionName:
+      name: Action Name
+      description: Name of action found in the companion app
+      selector:
+        text:
+    action:
+      name: Automation action
+      selector:
+        action:
+trigger:
+- platform: event
+  event_type: ios.action_fired
+  event_data:
+    actionName: !input actionName
+condition: []
+action: !input action
+mode: single
